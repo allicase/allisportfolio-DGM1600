@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+}
+
+#navbar {
+    background-color: #782;
+}
+
+.nav-list{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* .nav-list ul{
+    list-style-type: none;
+} */
+
+a {
+    text-decoration: none;
+    color: #f0f0f0;
+}
