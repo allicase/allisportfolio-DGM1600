@@ -1,4 +1,6 @@
-html {
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -9,13 +11,17 @@ html {
 .nav-list{
     display: flex;
     justify-content: flex-end;
+    list-style-type: none;
 }
 
-/* .nav-list ul{
-    list-style-type: none;
-} */
-
-a {
+.nav-list a {
+    display: block;
     text-decoration: none;
     color: #f0f0f0;
+    padding: 1rem;
+    font-size: xx-large;
+}
+
+.nav-list a:hover {
+    background-color: rgb(178, 197, 82);
 }
