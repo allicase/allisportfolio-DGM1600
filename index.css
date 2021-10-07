@@ -1,27 +1,35 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #navbar {
-    background-color: #782;
+    width: 100%;
+  background-color: #782;
+  position: fixed;
 }
 
-.nav-list{
-    display: flex;
-    justify-content: flex-end;
-    list-style-type: none;
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin-right: 1rem;
 }
 
 .nav-list a {
-    display: block;
-    text-decoration: none;
-    color: #f0f0f0;
-    padding: 1rem;
-    font-size: xx-large;
+  display: block;
+  text-decoration: none;
+  color: #f0f0f0;
+  padding: 1rem;
+  font-size: xx-large;
 }
 
 .nav-list a:hover {
-    background-color: rgb(178, 197, 82);
+  background-color: rgb(178, 197, 82);
+}
+
+#welcome-section {
+  background-color: rgb(205, 185, 214);
+  height: 50vh;
 }
