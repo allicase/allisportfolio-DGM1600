@@ -31,5 +31,24 @@
 
 #welcome-section {
   background-color: rgb(205, 185, 214);
-  height: 50vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#projects {
+  display: flex;
+  justify-content: center;
+}
+
+.projects-grid {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-tile {
+  margin: 2rem;
 }
