@@ -33,6 +33,10 @@ html {
   background-color: rgb(178, 197, 82);
 }
 
+a {
+  text-decoration: none;
+}
+
 #welcome-section {
   background-color: rgb(205, 185, 214);
   height: 100vh;
@@ -48,9 +52,9 @@ html {
 }
 
 .projects-grid {
-  width: 1280px;
   display: flex;
   flex-wrap: wrap;
+  width: 1280px;
 }
 
 .project-tile {
@@ -58,6 +62,39 @@ html {
 }
 
 #contact {
-  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 320px;
   background-color: rgb(178, 197, 82);
+  font-size: 2rem;
+}
+
+#contact h1, h4{
+  color: white;
+  padding-bottom: 1rem;
+}
+
+#contact div {
+  display: flex;
+  justify-content: center;
+}
+
+#contact div a {
+  padding: 2rem;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 1px 1px 4px #000000;
+  transition: transform 0.3s linear;
+}
+
+#contact div a:hover {
+  transform: translateY(-5px);
+}
+
+footer h4 {
+  text-align: center;
+  padding: 1rem;
+  color: black;
 }
