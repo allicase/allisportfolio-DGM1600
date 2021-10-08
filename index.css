@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "chromateregular";
+  src: url("chromate-regular-webfont.woff2") format("woff2"),
+    url("chromate-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +31,7 @@ html {
 #navbar {
   width: 100%;
   position: fixed;
-  background-color: #782;
+  background-color: #131f32;
 }
 
 .nav-list {
@@ -36,13 +44,15 @@ html {
 .nav-list a {
   display: block;
   text-decoration: none;
-  color: #f0f0f0;
+  font-family: 'Lobster', cursive;
+  color: #f3e9e6;
+  text-shadow: 1px 1px 4px #00000065;
   padding: 1.5rem;
   font-size: xx-large;
 }
 
 .nav-list a:hover {
-  background-color: rgb(178, 197, 82);
+  background-color: #819fa6;
 }
 
 a {
@@ -50,26 +60,49 @@ a {
 }
 
 #welcome-section {
-  background-color: rgb(205, 185, 214);
+  background: url("images/hero-bg.jpg");
+  background-position: center;
+  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding-top: 2rem;
+  padding-left: 12rem;
   font-size: 3rem;
 }
 
+#welcome-section h1 {
+  color: #c49d87;
+  text-shadow: 1px 1px 4px #00000065;
+  font-family: 'Lobster', cursive;
+}
+
+#welcome-section h6 {
+  color: #e9d5cd;
+  text-shadow: 1px 1px 4px #00000065;
+  font-family: 'Raleway', sans-serif;
+}
+
 #projects {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #f3e9e6;
+  background-size: cover;
 }
 
-#projects h2{
+#projects h2 {
   font-size: 2rem;
+  margin-top: 3rem;
+  font-family: 'Lobster', cursive;
+  color: #131f32;
+}
+
+#projects figcaption {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 
 .projects-grid {
@@ -77,6 +110,7 @@ a {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
 .project-tile {
@@ -89,25 +123,28 @@ a {
   justify-content: center;
   align-items: center;
   height: 320px;
-  background-color: rgb(178, 197, 82);
+  background-color: #819fa6;
   font-size: 2rem;
 }
 
-#contact h1, h4{
-  color: white;
+#contact h1,
+h4 {
+  color: #131f32;
+  font-family: 'Lobster', cursive;
   padding-bottom: 1rem;
 }
 
 #contact div {
   display: flex;
   justify-content: center;
+  font-family: 'Raleway', sans-serif;
 }
 
 #contact div a {
   padding: 2rem;
   font-size: 1.5rem;
-  color: white;
-  text-shadow: 1px 1px 4px #000000;
+  color: #131f32;
+  text-shadow: 1px 1px 4px #00000065;
   transition: transform 0.3s linear;
 }
 
@@ -119,4 +156,6 @@ footer h4 {
   text-align: center;
   padding: 1rem;
   color: black;
+  background-color: #819fa6;
+  font-family: 'Raleway', sans-serif;
 }
