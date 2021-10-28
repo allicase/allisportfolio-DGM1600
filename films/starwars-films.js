@@ -2,6 +2,19 @@ import { films } from '../data/films.js'
 
 let filmList = document.querySelector('#filmList')
 
-filmList.textContent = 'Hello World'
+let titleList = document.createElement('ol')
 
-console.log(films[2])
+filmList.appendChild(titleList)
+
+let poster = document.createElement('img')
+
+poster.src = `https://starwars-visualguide.com/assets/img/films/1.jpg`
+
+filmList.appendChild(poster)
+
+for (let i = 0; i < films.length; i++) {
+    let titleItem = document.createElement('li')
+    titleItem.textContent = films[i].title
+    titleList.appendChild(titleItem)
+ }
+

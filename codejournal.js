@@ -69,3 +69,24 @@ myCar.numDoors = 4;
 // SQUARE BRACE [] MEANS ARRAY
 
 // CURLY BRACE {} MEANS OBJECT
+
+const anotherObject = {
+  wordz: ["foo", "bar", "baz"],
+  car: {
+    make: "McLaren",
+    model: "675LT"
+  },
+  awesome: true
+};
+
+// Functions
+
+function myFunction() {
+  return "My greeting to you...";
+}
+
+function sumTwoThings(one, two) {
+  return one + two; // if numbers, it will add them. If strings, it will concatenate WATCH FOR DATA TYPE ISSUES
+}
+
+// () tend to be functions
