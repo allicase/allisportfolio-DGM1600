@@ -65,3 +65,7 @@ let myCar = {
 myCar.numDoors = 4; 
 
 // use dot notation to find items in an object ex. myCar.make will retirn "Honda"
+
+// SQUARE BRACE [] MEANS ARRAY
+
+// CURLY BRACE {} MEANS OBJECT

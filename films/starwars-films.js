@@ -1,3 +1,7 @@
 import { films } from '../data/films.js'
 
-console.log("Hello World!")
+let filmList = document.querySelector('#filmList')
+
+filmList.textContent = 'Hello World'
+
+console.log(films[2])
