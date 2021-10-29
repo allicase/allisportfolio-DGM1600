@@ -3,6 +3,15 @@ header {
     color: white;
 }
 
+figure {
+    background-color: rgb(14, 13, 41);
+}
+figcaption {
+    color: lightgray;
+    text-align: center;
+    font-size: xx-large;
+}
+
 img {
     border: 8px solid goldenrod;
 }
