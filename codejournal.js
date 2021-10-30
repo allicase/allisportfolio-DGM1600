@@ -90,3 +90,12 @@ function sumTwoThings(one, two) {
 }
 
 // () tend to be functions
+
+// Arrow Functions
+
+element => console.log(element) // implicit 'return' when only one line for the funtion
+element => {
+  let foo = 'bar' + 'bazz'
+  console.log(element) // explicit return because of multiple lines
+}
+(num1, num2) => num1 + num2
