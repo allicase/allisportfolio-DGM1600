@@ -1,0 +1,9 @@
+ main {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+
+ figure img{
+    width: 200px;
+ }
