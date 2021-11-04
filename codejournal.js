@@ -99,3 +99,40 @@ element => {
   console.log(element) // explicit return because of multiple lines
 }
 (num1, num2) => num1 + num2
+
+// Arrow Functions
+
+const theFunction = () => "I am awesome";
+
+// a higher order function is a function that accepts another function as a parameter.
+// filter, map and reduce are the most popular, but forEach, every, find, and some are also HOFs
+
+// Filter method example.  Filter returns an array of all elements that 'pass the test'
+
+const pilots = [
+  {
+    id: 2,
+    name: "Wedge Antilles",
+    faction: "Rebels"
+  },
+  {
+    id: 8,
+    name: "Ciena Ree",
+    faction: "Empire"
+  },
+  {
+    id: 40,
+    name: "Iden Versio",
+    faction: "Empire"
+  },
+  {
+    id: 66,
+    name: "Thane Kyrell",
+    faction: "Rebels"
+  }
+];
+
+const rebels = pilots.filter((pilot) => pilot.faction === "Rebels");
+const empire = pilots.filter((pilot) => {
+  return pilot.faction === "Empire";
+});
