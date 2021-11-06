@@ -2,6 +2,21 @@ import { people } from "../data/people.js";
 
 const main = document.querySelector("#main");
 
+const mainHeader = document.createElement('header')
+document.body.appendChild(mainHeader)
+
+const maleButton = document.createElement('button')
+maleCharacters.textContent = "Male Characters"
+mainHeader.appendChild(maleButton)
+
+const femaleButton = document.createElement('button')
+femaleCharacters.textContent = "Female Characters"
+mainHeader.appendChild(femaleButton)
+
+const maleButton = document.createElement('button')
+maleCharacters.textContent = "Male Characters"
+mainHeader.appendChild(maleButton)
+
 const maleCharacters = people.filter((person) => person.gender === "male");
 console.log(maleCharacters);
 const femaleCharacters = people.filter((person) => person.gender === "female");
