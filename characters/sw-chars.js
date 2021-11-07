@@ -2,33 +2,33 @@ import { people } from "../data/people.js";
 
 const main = document.querySelector("#main");
 
-const mainHeader = document.createElement('header')
-document.body.appendChild(mainHeader)
+const mainHeader = document.createElement("header");
+document.body.insertBefore(mainHeader, main);
 
-const maleButton = document.createElement('button')
-maleCharacters.textContent = "Male Characters"
-mainHeader.appendChild(maleButton)
+const maleButton = document.createElement("button");
+maleButton.textContent = "Male Characters";
 
-const femaleButton = document.createElement('button')
-femaleCharacters.textContent = "Female Characters"
-mainHeader.appendChild(femaleButton)
+maleButton.addEventListener("click", () => console.log('Thanks for clicking'));
 
-const maleButton = document.createElement('button')
-maleCharacters.textContent = "Male Characters"
-mainHeader.appendChild(maleButton)
+mainHeader.appendChild(maleButton);
+
+const femaleButton = document.createElement("button");
+femaleButton.textContent = "Female Characters";
+mainHeader.appendChild(femaleButton);
+
+const othersButton = document.createElement("button");
+othersButton.textContent = "Other Characters";
+mainHeader.appendChild(othersButton);
 
 const maleCharacters = people.filter((person) => person.gender === "male");
-console.log(maleCharacters);
+
 const femaleCharacters = people.filter((person) => person.gender === "female");
-console.log(femaleCharacters);
 
 const otherCharacters = people.filter((person) => {
   if (person.gender === "n/a" || person.gender === "hermaphrodite") {
     return person;
   }
 });
-
-console.log(otherCharacters)
 
 people.forEach((element) => {
   const personFig = document.createElement("figure");
