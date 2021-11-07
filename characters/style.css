@@ -26,6 +26,10 @@
      justify-content: center;
  }
 
+ figure {
+    margin: 4px;
+ }
+
  figure img{
     width: 200px;
  }
