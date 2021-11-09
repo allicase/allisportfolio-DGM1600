@@ -38,9 +38,11 @@ function populateShipView(shipData) {
   let shipImage = document.createElement('img')
   let shipName = document.createElement('div')
   shipName.textContent = shipData.name
+  shipName.className = 'shipName'
   let shipNum = getLastNumber(shipData.url);
   shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`;
   shipImage.addEventListener("error", () => {
+    shipName.hidden = true;
     shipImage.hidden = true;
     modal.classList.toggle("is-active");
     shipMessage.textContent = `${shipData.name} is not available`;
