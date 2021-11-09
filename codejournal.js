@@ -136,3 +136,15 @@ const rebels = pilots.filter((pilot) => pilot.faction === "Rebels");
 const empire = pilots.filter((pilot) => {
   return pilot.faction === "Empire";
 });
+
+// "map" array helper method, creates a new array
+let filmURLs = [
+  "https://swapi.co/api/films/",
+  "https://swapi.co/api/films/5/",
+  "https://swapi.co/api/films/4/this one is longer... even longer",
+  "https://swapi.co/api/films/6/",
+  "https: ",
+  "https://swapi.co/api/films/1/"
+];
+
+const filmLengths = filmURLs.map((filmURL) => filmURL.length);
