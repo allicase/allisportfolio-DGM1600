@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header, footer {
+    font-family: 'Orbitron', sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    padding: .5em;
+}
+
+footer {
+    font-size: medium;
+}
+
+.mainContainer{
+    display: flex;
+}
+
+.nav {
+    margin-left: 2em;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    font-size: x-large;
+    background-color: gold;
+    text-align: center;
+}
