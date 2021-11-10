@@ -1,45 +1,72 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
 }
 
-header, footer {
-    font-family: 'Orbitron', sans-serif;
-    font-size: xx-large;
-    text-align: center;
-    padding: .5em;
+header,
+footer {
+  font-family: "Orbitron", sans-serif;
+  font-size: xx-large;
+  text-align: center;
+  padding: 0.5em;
+  color: gold;
 }
 
 footer {
-    font-size: medium;
+  font-size: medium;
 }
 
-.mainContainer{
+.mainContainer {
     display: flex;
 }
 
 .nav {
-    margin-left: 2em;
+  margin-left: 2em;
 }
 
 section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: large;
-    padding: 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: large;
+  padding: 1em;
 }
 
 .box {
-    font-size: x-large;
-    background-color: gold;
-    text-align: center;
+  font-size: x-large;
+  background-color: gold;
+  text-align: center;
 }
 
+
 .shipName {
-    font-family: 'Orbitron', sans-serif;
-    padding: 1em;
-    color: gold;
-  }
+  font-family: "Orbitron", sans-serif;
+  padding: 1em;
+  color: gold;
+  font-size: xx-large;
+}
+
+a {
+  font-size: large;
+  color: rgba(150, 150, 255, 1);
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 1px 1px 4px navy;
+}
+
+a:hover {
+    color: rgb(226, 226, 255);
+}
+
+a li {
+  padding: 0.2em;
+}
