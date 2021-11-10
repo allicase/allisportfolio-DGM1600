@@ -25,7 +25,7 @@ footer {
 }
 
 .mainContainer {
-    display: flex;
+  display: flex;
 }
 
 .nav {
@@ -40,12 +40,17 @@ section {
   flex-direction: column;
   font-size: large;
   padding: 1em;
+  position: fixed;
+  top: 15%;
+  left: 15%;
 }
 
 .box {
   font-size: x-large;
-  background-color: gold;
+  background-color: lightgray;
+  color: black;
   text-align: center;
+  font-family: 'Space Mono', monospace;
 }
 
 
