@@ -6,6 +6,7 @@
 .senators {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 6em;
 }
 
 figure {
@@ -17,4 +18,9 @@ figure {
 
 figcaption {
     text-align: center;
+}
+
+header {
+    text-align: center;
+    margin: 1em;
 }
