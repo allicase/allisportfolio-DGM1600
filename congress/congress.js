@@ -48,6 +48,13 @@ return acc.seniority > senator.seniority ? acc : senator
 
 console.log(mostSeniorSenator)
 
-const mostLoyal = simplifiedSenators(}.reduce(acc, senator) => {
-  
-}
+const mostLoyal = simplifiedSenators().reduce((acc, senator) => {
+  if(senator.loyaltyPct === 100) {
+    acc.push(senator)
+  }
+  return acc
+}, [])
+
+const biggestWeasel = simplifiedSenators().reduce((acc, senator) => acc > senator.missedVotesPct ? acc : senator.missedVotesPct, 0)
+
+console.log(biggestWeasel)
