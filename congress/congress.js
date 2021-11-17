@@ -47,3 +47,7 @@ return acc.seniority > senator.seniority ? acc : senator
 })
 
 console.log(mostSeniorSenator)
+
+const mostLoyal = simplifiedSenators(}.reduce(acc, senator) => {
+  
+}
