@@ -1,9 +1,18 @@
 import { senators } from "../data/senators.js";
+import { representatives } from "../data/representatives.js";
+
+const members = [...senators, ...representatives]; // combined arrays like a boss
 
 const senatorDiv = document.querySelector(".senators");
+const seniorityHeading = document.querySelector(".seniority");
+const weaselOrderedList = document.querySelector(".weaselList");
 
-function simplifiedSenators() {
-  return senators.map((senator) => {
+function simplifiedMembers(chamberFilter) {
+  const filteredArray = members.filter((member) =>
+    chamberFilter ? member.short_title === chamberFilter : member
+  );
+
+  return filteredArray.map((senator) => {
     const middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `;
     return {
       id: senator.id,
@@ -18,7 +27,7 @@ function simplifiedSenators() {
   });
 }
 
-populateSenatorDiv(simplifiedSenators());
+populateSenatorDiv(simplifiedMembers("Rep."));
 
 function populateSenatorDiv(simpleSenators) {
   simpleSenators.forEach((senator) => {
@@ -35,26 +44,39 @@ function populateSenatorDiv(simpleSenators) {
   });
 }
 
-const filterSenators = (prop, value) => simplifiedSenators().filter(senator => senator[prop] === value)
+// const filterSenators = (prop, value) => simplifiedSenators().filter(senator => senator[prop] === value)
 
-const republicans = filterSenators("party", "R")
-const femaleSenators = filterSenators("gender", "F")
+// const republicans = filterSenators("party", "R")
+// const femaleSenators = filterSenators("gender", "F")
 
-//console.log(femaleSenators)
+// console.log(femaleSenators)
 
-const mostSeniorSenator = simplifiedSenators().reduce((acc, senator) => {
-return acc.seniority > senator.seniority ? acc : senator
-})
+const mostSeniorMember = simplifiedMembers().reduce((acc, senator) => {
+  return acc.seniority > senator.seniority ? acc : senator;
+});
 
-console.log(mostSeniorSenator)
+seniorityHeading.textContent = `The most senior member of Congress is ${mostSeniorMember.name}. They have been a member for more than ${mostSeniorMember.seniority} years.`;
 
-const mostLoyal = simplifiedSenators().reduce((acc, senator) => {
-  if(senator.loyaltyPct === 100) {
-    acc.push(senator)
+const mostLoyal = simplifiedMembers().reduce((acc, senator) => {
+  if (senator.loyaltyPct === 100) {
+    acc.push(senator);
   }
-  return acc
-}, [])
+  return acc;
+}, []);
 
-const biggestWeasel = simplifiedSenators().reduce((acc, senator) => acc > senator.missedVotesPct ? acc : senator.missedVotesPct, 0)
+const biggestWeasel = simplifiedMembers().reduce(
+  (acc, senator) =>
+    (acc.missedVotesPct || 0) > senator.missedVotesPct ? acc : senator,
+  {}
+);
 
-console.log(biggestWeasel)
+const biggestWeasels = simplifiedMembers().filter(
+  (senator) => senator.missedVotesPct >= 50)
+
+
+
+biggestWeasels.forEach((weasel) => {
+  let listItem = document.createElement("li");
+  listItem.textContent = weasel.name;
+  weaselOrderedList.appendChild(listItem);
+});
