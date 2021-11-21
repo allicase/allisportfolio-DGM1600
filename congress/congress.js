@@ -74,7 +74,6 @@ const biggestWeasels = simplifiedMembers().filter(
   (senator) => senator.missedVotesPct >= 50)
 
 
-
 biggestWeasels.forEach((weasel) => {
   let listItem = document.createElement("li");
   listItem.textContent = weasel.name;
