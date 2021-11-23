@@ -6,13 +6,8 @@ const members = [...senators, ...representatives]; // combined arrays like a bos
 const senatorDiv = document.querySelector(".senators");
 const seniorityHeading = document.querySelector(".seniority");
 const weaselOrderedList = document.querySelector(".weaselList");
-
-// const republicanButton = document.createElement("button");
-// republicanButton.textContent = "Reoublicans";
-// republicanButton.addEventListener("click", () => populateDOM(republican));
-// mainHeader.appendChild(republicanButton);
-
-// const republican = members.filter((member) => member.party === "R");
+const memberDiv = document.querySelector('.members')
+const buttonDiv = document.querySelector('.buttons')
 
 function simplifiedMembers(chamberFilter) {
   const filteredArray = members.filter((member) =>
@@ -51,12 +46,11 @@ function populateSenatorDiv(simpleSenators) {
   });
 }
 
-// const filterSenators = (prop, value) => simplifiedSenators().filter(senator => senator[prop] === value)
+const filterMembers = (prop, value) => simplifiedMembers().filter(member => member[prop] === value)
 
-// const republicans = filterSenators("party", "R")
-// const femaleSenators = filterSenators("gender", "F")
+const republicans = filterMembers("party", "R")
 
-// console.log(femaleSenators)
+ console.log(republicans)
 
 const mostSeniorMember = simplifiedMembers().reduce((acc, senator) => {
   return acc.seniority > senator.seniority ? acc : senator;
@@ -78,11 +72,25 @@ const biggestWeasel = simplifiedMembers().reduce(
 );
 
 const biggestWeasels = simplifiedMembers().filter(
-  (senator) => senator.missedVotesPct >= 50)
-
+  (senator) => senator.missedVotesPct >= 50
+);
 
 biggestWeasels.forEach((weasel) => {
   let listItem = document.createElement("li");
   listItem.textContent = weasel.name;
   weaselOrderedList.appendChild(listItem);
 });
+
+const representativeButton = document.createElement('button')
+representativeButton.textContent = 'Representatives'
+representativeButton.addEventListener('click', () => 
+  populateMemberDiv(simplifiedMembers('Rep.'))
+)
+buttonDiv.appendChild(representativeButton)
+
+const senatorButton = document.createElement('button')
+senatorButton.textContent = 'Senators'
+senatorButton.addEventListener('click', () => 
+  populateMemberDiv(simplifiedMembers('Sen.'))
+)
+buttonDiv.appendChild(senatorButton)
