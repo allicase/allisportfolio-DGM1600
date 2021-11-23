@@ -1,13 +1,14 @@
 import { senators } from "../data/senators.js";
 import { representatives } from "../data/representatives.js";
+import { removeChildren } from "../utils/index.js";
+
 
 const members = [...senators, ...representatives]; // combined arrays like a boss
 
 const senatorDiv = document.querySelector(".senators");
 const seniorityHeading = document.querySelector(".seniority");
 const weaselOrderedList = document.querySelector(".weaselList");
-const memberDiv = document.querySelector('.members')
-const buttonDiv = document.querySelector('.buttons')
+
 
 function simplifiedMembers(chamberFilter) {
   const filteredArray = members.filter((member) =>
@@ -29,9 +30,10 @@ function simplifiedMembers(chamberFilter) {
   });
 }
 
-populateSenatorDiv(simplifiedMembers("Rep."));
+populateSenatorDiv(simplifiedMembers());
 
 function populateSenatorDiv(simpleSenators) {
+  removeChildren(senatorDiv)
   simpleSenators.forEach((senator) => {
     let senFigure = document.createElement("figure");
     let figImg = document.createElement("img");
@@ -46,11 +48,33 @@ function populateSenatorDiv(simpleSenators) {
   });
 }
 
-const filterMembers = (prop, value) => simplifiedMembers().filter(member => member[prop] === value)
+//buttons
 
-const republicans = filterMembers("party", "R")
+const republicanButton = document.querySelector(".repub");
+republicanButton.addEventListener("click", () => {
+  const republicans = simplifiedMembers().filter(
+    (member) => member.party === "R"
+  );
+  populateSenatorDiv(republicans);
+});
 
- console.log(republicans)
+const democratButton = document.querySelector(".demo");
+democratButton.addEventListener("click", () => {
+  const democrats = simplifiedMembers().filter(
+    (member) => member.party === "D"
+  );
+  populateSenatorDiv(democrats);
+});
+
+// const repButton = document.querySelector(".rep");
+// repButton.addEventListener("click", () => {
+//   const represent = simplifiedMembers().filter(
+//     (member) => member.short_title === "Rep."
+//   );
+//   populateSenatorDiv(represent);
+// });
+
+//seniority filter
 
 const mostSeniorMember = simplifiedMembers().reduce((acc, senator) => {
   return acc.seniority > senator.seniority ? acc : senator;
@@ -80,17 +104,3 @@ biggestWeasels.forEach((weasel) => {
   listItem.textContent = weasel.name;
   weaselOrderedList.appendChild(listItem);
 });
-
-const representativeButton = document.createElement('button')
-representativeButton.textContent = 'Representatives'
-representativeButton.addEventListener('click', () => 
-  populateMemberDiv(simplifiedMembers('Rep.'))
-)
-buttonDiv.appendChild(representativeButton)
-
-const senatorButton = document.createElement('button')
-senatorButton.textContent = 'Senators'
-senatorButton.addEventListener('click', () => 
-  populateMemberDiv(simplifiedMembers('Sen.'))
-)
-buttonDiv.appendChild(senatorButton)
