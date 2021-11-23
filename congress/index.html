@@ -5,21 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
     <title>People of Congress</title>
 </head>
 <body>
-    <header><h1>People of Congress<h1>
-        <h2 class="seniority"></h2>
-        <div>
-            <ol class="weaselList">
-                
-            </ol>
+    <header>
+        <div id="searchWrapper">
+            <input
+                type="text"
+                name="searchBar"
+                id="searchBar"
+                placeholder="Search Members"
+            />
         </div>
+        <h1>People of Congress<h1>
         <button class="repub">Republicans</button>
         <button class="demo">Democrats</button>
-        <!-- <button class="rep">Representatives</button> -->
+        <button class="senior">Who is the senior most member?</button>
     </header>
+</class>
         <main>
+            <h2 class="seniority"></h2>
             <div class="senators">
 
             </div>

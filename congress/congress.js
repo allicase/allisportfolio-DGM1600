@@ -2,13 +2,20 @@ import { senators } from "../data/senators.js";
 import { representatives } from "../data/representatives.js";
 import { removeChildren } from "../utils/index.js";
 
-
 const members = [...senators, ...representatives]; // combined arrays like a boss
 
 const senatorDiv = document.querySelector(".senators");
 const seniorityHeading = document.querySelector(".seniority");
-const weaselOrderedList = document.querySelector(".weaselList");
+const searchBar = document.getElementById('searchBar')
 
+// search bar
+searchBar.addEventListener('keyup', (input) => {
+  const search = input.target.value.toUpperCase()
+  const filteredMembers = simplifiedMembers().filter( member => {
+    return member.name.toUpperCase().includes(search)
+  })
+  populateSenatorDiv(filteredMembers)
+})
 
 function simplifiedMembers(chamberFilter) {
   const filteredArray = members.filter((member) =>
@@ -33,7 +40,7 @@ function simplifiedMembers(chamberFilter) {
 populateSenatorDiv(simplifiedMembers());
 
 function populateSenatorDiv(simpleSenators) {
-  removeChildren(senatorDiv)
+  removeChildren(senatorDiv);
   simpleSenators.forEach((senator) => {
     let senFigure = document.createElement("figure");
     let figImg = document.createElement("img");
@@ -66,41 +73,15 @@ democratButton.addEventListener("click", () => {
   populateSenatorDiv(democrats);
 });
 
-// const repButton = document.querySelector(".rep");
-// repButton.addEventListener("click", () => {
-//   const represent = simplifiedMembers().filter(
-//     (member) => member.short_title === "Rep."
-//   );
-//   populateSenatorDiv(represent);
-// });
-
 //seniority filter
+
+const seniorityButton = document.querySelector(".senior");
+seniorityButton.addEventListener("click", () => {
+  mostSeniorMember;
+  seniorityHeading.textContent = `The most senior member of Congress is ${mostSeniorMember.name}. They have been a member for more than ${mostSeniorMember.seniority} years.`;
+});
 
 const mostSeniorMember = simplifiedMembers().reduce((acc, senator) => {
   return acc.seniority > senator.seniority ? acc : senator;
 });
 
-seniorityHeading.textContent = `The most senior member of Congress is ${mostSeniorMember.name}. They have been a member for more than ${mostSeniorMember.seniority} years.`;
-
-const mostLoyal = simplifiedMembers().reduce((acc, senator) => {
-  if (senator.loyaltyPct === 100) {
-    acc.push(senator);
-  }
-  return acc;
-}, []);
-
-const biggestWeasel = simplifiedMembers().reduce(
-  (acc, senator) =>
-    (acc.missedVotesPct || 0) > senator.missedVotesPct ? acc : senator,
-  {}
-);
-
-const biggestWeasels = simplifiedMembers().filter(
-  (senator) => senator.missedVotesPct >= 50
-);
-
-biggestWeasels.forEach((weasel) => {
-  let listItem = document.createElement("li");
-  listItem.textContent = weasel.name;
-  weaselOrderedList.appendChild(listItem);
-});
