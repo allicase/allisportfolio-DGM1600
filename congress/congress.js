@@ -7,6 +7,13 @@ const senatorDiv = document.querySelector(".senators");
 const seniorityHeading = document.querySelector(".seniority");
 const weaselOrderedList = document.querySelector(".weaselList");
 
+// const republicanButton = document.createElement("button");
+// republicanButton.textContent = "Reoublicans";
+// republicanButton.addEventListener("click", () => populateDOM(republican));
+// mainHeader.appendChild(republicanButton);
+
+// const republican = members.filter((member) => member.party === "R");
+
 function simplifiedMembers(chamberFilter) {
   const filteredArray = members.filter((member) =>
     chamberFilter ? member.short_title === chamberFilter : member
