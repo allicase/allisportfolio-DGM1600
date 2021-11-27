@@ -23,8 +23,10 @@ function populatePokeCards(singlePokemon) {
   pokeCard.className = "card"
   const pokeFront= document.createElement('div')
   pokeFront.className = "cardFace front"
+  pokeFront.textContent = "Front"
   const pokeBack = document.createElement('div')
   pokeBack.className = "cardFace back"
+  pokeBack.textContent = singlePokemon.name
 
   pokeCard.appendChild(pokeFront)
   pokeCard.appendChild(pokeBack)
