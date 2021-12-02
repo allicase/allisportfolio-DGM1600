@@ -20,7 +20,8 @@ function populatePokeCards(singlePokemon) {
   const pokeScene = document.createElement('div')
   pokeScene.className = "scene"
   const pokeCard = document.createElement('div')
-  pokeCard.className = "card"
+  pokeCard.className = "card is-flipped"
+  pokeCard.addEventListener("click", () => pokeCard.classList.toggle('is-flipped'))
   const pokeFront= document.createElement('div')
   pokeFront.className = "cardFace front"
   pokeFront.textContent = "Front"
