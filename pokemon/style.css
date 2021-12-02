@@ -39,3 +39,8 @@
     background-color: darkgray;
     transform: rotateY(180deg);
 }
+
+figure img {
+    width: 200px;
+    height: auto;
+}

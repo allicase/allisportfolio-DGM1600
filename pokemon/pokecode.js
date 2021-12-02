@@ -8,29 +8,47 @@ async function getAPIData(url) {
   }
 }
 
-getAPIData("https://pokeapi.co/api/v2/pokemon/ditto")
-.then((data) => {
-    console.log(data)
-    populatePokeCards(data)
-})
+getAPIData("https://pokeapi.co/api/v2/pokemon/ditto").then((data) => {
+  console.log(data);
+  populatePokeCards(data);
+});
 
-const pokeGrid = document.querySelector('.pokeGrid')
+const pokeGrid = document.querySelector(".pokeGrid");
 
 function populatePokeCards(singlePokemon) {
-  const pokeScene = document.createElement('div')
-  pokeScene.className = "scene"
-  const pokeCard = document.createElement('div')
-  pokeCard.className = "card is-flipped"
-  pokeCard.addEventListener("click", () => pokeCard.classList.toggle('is-flipped'))
-  const pokeFront= document.createElement('div')
-  pokeFront.className = "cardFace front"
-  pokeFront.textContent = "Front"
-  const pokeBack = document.createElement('div')
-  pokeBack.className = "cardFace back"
-  pokeBack.textContent = singlePokemon.name
+  const pokeScene = document.createElement("div");
+  pokeScene.className = "scene";
+  const pokeCard = document.createElement("div");
+  pokeCard.className = "card is-flipped";
+  pokeCard.addEventListener("click", () =>
+    pokeCard.classList.toggle("is-flipped")
+  );
 
-  pokeCard.appendChild(pokeFront)
-  pokeCard.appendChild(pokeBack)
-  pokeScene.appendChild(pokeCard)
-  pokeGrid.appendChild(pokeScene)
+  const front = populateCardFront(singlePokemon);
+  const back = populateCardBack(singlePokemon);
+
+  pokeCard.appendChild(front);
+  pokeCard.appendChild(back);
+  pokeScene.appendChild(pokeCard);
+  pokeGrid.appendChild(pokeScene);
+}
+
+function populateCardFront(pokemon) {
+  const pokeFront = document.createElement("figure");
+  pokeFront.className = "cardFace front";
+  const pokeImg = document.createElement("img");
+  pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
+
+  const pokeCaption = document.createElement("figcaption");
+  pokeCaption.textContent = pokemon.name;
+  pokeFront.appendChild(pokeCaption);
+  pokeFront.appendChild(pokeImg);
+  return pokeFront;
+}
+
+function populateCardBack(pokemon) {
+  const pokeBack = document.createElement("div");
+  pokeBack.className = "cardFace back";
+  pokeBack.textContent = "back";
+  return pokeBack;
 }
