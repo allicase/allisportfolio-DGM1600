@@ -1,16 +1,16 @@
 async function getAPIData(url) {
   try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
+    return fetch(url).then((data) => data.json());
   } catch (error) {
     console.error(error);
   }
 }
 
-getAPIData("https://pokeapi.co/api/v2/pokemon/ditto").then((data) => {
-  console.log(data);
-  populatePokeCards(data);
+getAPIData("https://pokeapi.co/api/v2/pokemon?limit=25")
+.then( async (data) => {
+  for (const pokemon of data.results) {
+    await getAPIData(pokemon.url).then((pokeData) => populatePokeCards(pokeData));
+  }
 });
 
 const pokeGrid = document.querySelector(".pokeGrid");
@@ -19,7 +19,7 @@ function populatePokeCards(singlePokemon) {
   const pokeScene = document.createElement("div");
   pokeScene.className = "scene";
   const pokeCard = document.createElement("div");
-  pokeCard.className = "card is-flipped";
+  pokeCard.className = "card";
   pokeCard.addEventListener("click", () =>
     pokeCard.classList.toggle("is-flipped")
   );
@@ -49,6 +49,15 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement("div");
   pokeBack.className = "cardFace back";
-  pokeBack.textContent = "back";
+  const label = document.createElement('h4')
+  label.textContent = 'Abilities:'
+  pokeBack.appendChild(label)
+  const abilityList = document.createElement('ul')
+  pokemon.abilities.forEach((abilityItem) => {
+    let listItem = document.createElement('li')
+    listItem.textContent = abilityItem.ability.name
+    abilityList.appendChild(listItem)
+  })
+  pokeBack.appendChild(abilityList)
   return pokeBack;
 }
