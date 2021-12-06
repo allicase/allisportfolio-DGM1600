@@ -100,8 +100,56 @@ function populateCardFront(pokemon) {
   pokeCaption.textContent = pokemon.name;
   pokeFront.appendChild(pokeCaption);
   pokeFront.appendChild(pokeImg);
+
+  // typesBackground(pokemon, pokeFront)
   return pokeFront;
 }
+
+function typesBackground(pokemon, card) {
+  let pokeType1 = pokemon.types[0].type.name
+  let pokeType2 = pokemon.types[1]?.type.name
+  console.log(pokeType1, pokeType2)
+  card.style.setProperty(
+    'background',
+    `linear-gradient(${getPokeTypeColor(pokeType1)}, #FFF})`,
+  )
+}
+
+function getPokeTypeColor(pokeType) {
+  let color
+  switch (pokeType) {
+    case 'grass':
+      color = '#00FF00'
+      break
+    case 'fire':
+      color = '#FF0000'
+      break
+    case 'water':
+      color = '#0000FF'
+      break
+    case 'bug':
+      color = '#7FFF00'
+      break
+    case 'normal':
+      color = '#F5F5DC'
+      break
+    case 'flying':
+      color = '#00FFFF'
+      break
+    case 'poison':
+      color = '#C300FF'
+      break
+    case 'electric':
+      color = '#C8FF00'
+      break
+      case 'psychic':
+        color = '#333333'
+        break
+    default:
+      color = '#888888'
+  }
+}
+
 
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement("div");
