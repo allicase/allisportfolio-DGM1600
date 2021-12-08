@@ -109,10 +109,14 @@ function typesBackground(pokemon, card) {
   let pokeType1 = pokemon.types[0].type.name
   let pokeType2 = pokemon.types[1]?.type.name
   console.log(pokeType1, pokeType2)
+  if(!pokeType2) {
+    card.style.setProperty('background', getPokeTypeColor(pokeType1))
+  } else {
   card.style.setProperty(
     'background',
-    `linear-gradient(${getPokeTypeColor(pokeType1)}, #FFF})`,
-  )
+    `linear-gradient(${getPokeTypeColor(pokeType1)}, ${getPokeTypeColor(pokeType2)})`,
+    )
+  }
 }
 
 function getPokeTypeColor(pokeType) {
@@ -148,6 +152,7 @@ function getPokeTypeColor(pokeType) {
     default:
       color = '#888888'
   }
+  return color
 }
 
 
