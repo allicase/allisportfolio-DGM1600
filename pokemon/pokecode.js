@@ -168,6 +168,12 @@ function populateCardBack(pokemon) {
     listItem.textContent = abilityItem.ability.name;
     abilityList.appendChild(listItem);
   });
+  const typesList = document.createElement("ol")
+  pokemon.types.forEach((pokeType) => {
+    let typeItem = document.createElement('li')
+    typeItem.textContent=pokeType.type.name
+  }
+  )
   pokeBack.appendChild(abilityList);
   return pokeBack;
 }
