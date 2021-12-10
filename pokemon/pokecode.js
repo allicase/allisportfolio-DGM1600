@@ -29,8 +29,8 @@ loadButton.addEventListener("click", () => {
 
 const moreButton = document.querySelector(".morePokemon");
 moreButton.addEventListener("click", () => {
-  let limit = prompt("How many more Pokemon should I load?");
-  let offset = prompt("At which Pokemon ID should I start loading?");
+  let limit = prompt("How many more Pokemon would you like?");
+  let offset = prompt("Which Pokemon ID would you like to start at?");
   loadPokemon(offset, limit);
 });
 
@@ -40,10 +40,10 @@ newButton.addEventListener("click", () => {
   let pokeHeight = prompt("What is the Pokemon's height?");
   let pokeWeight = prompt("What is the Pokemon's weight?");
   let pokeAbilities = prompt(
-    "What are your Pokemon abilities? (use a comma separated list)"
+    "What are your Pokemon's abilities? (seperate each by a comma)"
   );
   let pokeTypes = prompt(
-    "What are your Pokemon's types? (up to 2 types separated by a space)"
+    "What are your Pokemon's types? (up to 2 types, separated by a space)"
   );
   let newPokemon = new Pokemon(
     pokeName,
@@ -146,34 +146,34 @@ function getPokeTypeColor(pokeType) {
   let color;
   switch (pokeType) {
     case "grass":
-      color = "#00FF00";
+      color = "#7cc96d";
       break;
     case "fire":
-      color = "#FF0000";
+      color = "#8c0101";
       break;
     case "water":
-      color = "#0000FF";
+      color = "#1d43a3";
       break;
     case "bug":
-      color = "#7FFF00";
+      color = "#96bf69";
       break;
     case "normal":
-      color = "#F5F5DC";
+      color = "#dedede";
       break;
     case "flying":
-      color = "#00FFFF";
+      color = "#8edade";
       break;
     case "poison":
-      color = "#C300FF";
+      color = "#dab8ff";
       break;
     case "electric":
-      color = "#C8FF00";
+      color = "#e6ff99";
       break;
     case "psychic":
       color = "pink";
       break;
     case "ground":
-      color = "brown";
+      color = "#a18f85";
       break;
     default:
       color = "#888888";
