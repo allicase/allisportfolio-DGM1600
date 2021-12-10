@@ -27,45 +27,7 @@ loadButton.addEventListener('click', () => {
   loadPokemon(100, 50)
 })
 
-function getAllSimplePokemon() {
-  const allPokemon = []
-  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0`).then(
-    async (data) => {
-      for (const pokemon of data.results) {
-        await getAPIData(pokemon.url).then((pokeData) => {
-          const mappedPokemon = {
-            abilities: pokeData.abilities,
-            height: pokeData.height,
-            id: pokeData.id,
-            name: pokeData.name,
-            types: pokeData.types,
-            weight: pokeData.weight,
-          }
-          allPokemon.push({name: pokeData.name})
-        })
-      }
-    },
-  )
-  return allPokemon
-}
 
-//const allSimplePokemon = getAllSimplePokemon()
-
-function getAllGrassPokemon() {
-  const allPokemon = getAllSimplePokemon()
-  allPokemon.forEach((pokemon) => {
-    console.log(pokemon)
-  })
-  //return allPokemon.filter((pokemon) => pokemon.types[0]?.type?.name === 'grass')
-}
-
-console.log(getAllSimplePokemon())
-
-const sortButton = document.querySelector('.sortButton')
-sortButton.addEventListener('click', () => {
-  console.log('You clicked?')
-  getAllSimplePokemon()
-})
 
 const moreButton = document.querySelector('.morePokemon')
 moreButton.addEventListener('click', () => {
