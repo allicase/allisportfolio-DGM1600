@@ -193,16 +193,19 @@ function populateCardBack(pokemon) {
     listItem.textContent = abilityItem.ability.name;
     abilityList.appendChild(listItem);
   });
+
   const typeslist = document.createElement("ol");
   pokemon.types.forEach((pokeType) => {
     let typeItem = document.createElement("li");
     typeItem.textContent = pokeType.type.name;
     typeslist.appendChild(typeItem);
   });
-
-  pokeBack.appendChild(abilityList);
-  pokeBack.appendChild(typeslist);
   
+  pokeBack.appendChild(abilityList);
+  const typeLabel = document.createElement("h4");
+  typeLabel.textContent = `Type:`;
+  pokeBack.appendChild(typeLabel);
+  pokeBack.appendChild(typeslist);
   if (pokemon.stats) {
     const pokeHP = document.createElement("h4");
     pokeHP.textContent = `HP: ${pokemon.stats[0].base_stat}`;
