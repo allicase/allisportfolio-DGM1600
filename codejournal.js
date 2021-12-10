@@ -148,3 +148,8 @@ let filmURLs = [
 ];
 
 const filmLengths = filmURLs.map((filmURL) => filmURL.length);
+
+/* First, get a reference to the pokemon choice button
+Second, add an event listener on click
+Third, use getAPIData with a URL like this https://pokeapi.co/api/v2/${promptedNameOrId}
+Fourth, populatePokeCard with the pokemon data retrieved */
