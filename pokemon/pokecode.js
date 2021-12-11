@@ -25,6 +25,7 @@ const loadButton = document.querySelector(".loadPokemon");
 loadButton.addEventListener("click", () => {
   removeChildren(pokeGrid);
   loadPokemon(100, 50);
+  setTimeout(() => loadPokemon(100, 50), 3000)
 });
 
 const moreButton = document.querySelector(".morePokemon");
@@ -33,6 +34,55 @@ moreButton.addEventListener("click", () => {
   let offset = prompt("Which Pokemon ID would you like to start at?");
   loadPokemon(offset, limit);
 });
+
+const allPokemon = await getAllSimplePokemon()
+
+async function getAllSimplePokemon() {
+  const allPokemon = []
+  await getAPIData(
+    `https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0`,
+  ).then(async (data) => {
+    for (const pokemon of data.results) {
+      await getAPIData(pokemon.url).then((pokeData) => {
+        const mappedPokemon = {
+          abilities: pokeData.abilities,
+          height: pokeData.height,
+          id: pokeData.id,
+          name: pokeData.name,
+          types: pokeData.types,
+          weight: pokeData.weight,
+        }
+        allPokemon.push(mappedPokemon)
+      })
+    }
+  })
+  return allPokemon
+}
+
+function getAllPokemonByType(type) {
+  return allPokemon.filter((pokemon) => pokemon.types[0].type.name == type)
+}
+
+const sortButton = document.querySelector('.sortButton')
+sortButton.addEventListener('click', () => {
+  const allByType = getAllPokemonByType('water')
+  allByType.forEach((item) => populatePokeCard(item))
+})
+
+const typeSelector = document.querySelector('#typeSelector')
+typeSelector.addEventListener('change', (event) => {
+  const usersTypeChoice = event.target.value.toLowerCase()
+  const allByType = getAllPokemonByType(usersTypeChoice)
+  removeChildren(pokeGrid)
+  allByType.forEach((item) => populatePokeCard(item))
+})
+
+
+
+
+
+
+
 
 const newButton = document.querySelector(".newPokemon");
 newButton.addEventListener("click", () => {
