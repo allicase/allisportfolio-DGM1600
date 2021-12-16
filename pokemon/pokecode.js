@@ -238,7 +238,7 @@ function populateCardBack(pokemon) {
     abilityList.appendChild(listItem);
   });
 
-  const typeslist = document.createElement("ol");
+  const typeslist = document.createElement("ul");
   pokemon.types.forEach((pokeType) => {
     let typeItem = document.createElement("li");
     typeItem.textContent = pokeType.type.name;
