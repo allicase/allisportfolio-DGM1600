@@ -23,6 +23,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 figcaption {
